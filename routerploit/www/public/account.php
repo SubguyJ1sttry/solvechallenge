@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_GET["mode"] == "save") {
   if (!$error) {
     goto_page("/account.php");
   }
-}
+}   as
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_GET["mode"] == "pin_note") {
   $error_location = "note";
