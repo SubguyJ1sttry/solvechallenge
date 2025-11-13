@@ -1,0 +1,105 @@
+@import "variables";
+
+// footer //
+
+footer {
+  flex: none;
+  padding: 4rem 2rem 3rem;
+  background-color: $clr_secondary;
+  overflow: hidden;
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 1440px;
+    margin-inline: auto;
+    line-height: 1.8;
+
+    > * {
+      flex: 1 1 200px;
+    }
+
+    .sub_nav {
+      padding-bottom: 2rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      list-style: none;
+      width: max-content;
+    }
+
+    a {
+      color: $clr_blue_dark;
+      text-decoration: none;
+
+      &::before {
+        height: 2px;
+        bottom: 3px;
+        background-color: $clr_secondary;
+      }
+    }
+
+    i {
+      &::before {
+        width: 20px;
+        display: block;
+      }
+    }
+
+    .level_1 {
+      > a {
+        position: relative;
+        width: fit-content;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          inset: auto 0 0 0;
+          background-color: $clr_primary;
+          height: 3px;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    max-width: 1440px;
+    margin-inline: auto;
+
+    p {
+      text-align: center;
+      color: $clr_white;
+    }
+  }
+}
+
+@media only screen and (width > $mq_tablet) {
+  footer {
+    padding-inline: 3rem;
+  }
+}
+
+@media only screen and (width > $mq_laptop) {
+  footer {
+    padding-inline: 5rem;
+  }
+}
+
+@media only screen and (width > $mq_desktop) {
+  footer {
+    padding-inline: 7rem;
+  }
+}

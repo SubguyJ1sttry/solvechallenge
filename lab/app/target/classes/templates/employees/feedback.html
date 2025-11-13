@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin-left: 30px;
+            margin-right: 30px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 100px auto 40px auto; /* Khoảng cách từ trên cùng để tránh navbar */
+        }
+        .illustration {
+            flex: 1;
+            max-width: 100%;
+            text-align: center;
+        }
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+        }
+        .form {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            font-weight: 500;
+            text-align: center;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .form-group .name-display,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 60px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            background-color: #f0f0f0;
+            color: #555;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .form-group .name-display {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+        .form-group textarea {
+            resize: none;
+            height: 120px;
+        }
+        .form-group .icon {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: #bbb;
+            font-size: 20px;
+        }
+        .form button {
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            background-color: #6a11cb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form button:hover {
+            background-color: #551a8b;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .form h2 {
+                font-size: 20px;
+            }
+            .form {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Banner navigation -->
+<nav class="navbar">
+    <a class="navbar-brand" href="/">
+        <img th:src="@{/images/pass_fail_160px.png}" width="30" height="30" alt="icon">
+        myems.io
+    </a>
+    <div class="navbar-nav">
+        <div sec:authorize="hasRole('ROLE_ADMINISTRATOR')"><a class="nav-link" th:href="@{/employees/profile}">Profile</a></div>
+        <a class="nav-link" th:href="@{/employees/list}">Employee List</a>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="illustration">
+        <img th:src="@{/images/feedback.png}" alt="Illustration">
+    </div>
+    <div class="form">
+        <h2>Get in touch</h2>
+        <div class="form-group">
+            <i class="icon fas fa-user"></i>
+            <div class="name-display">
+                <span th:utext="@{__${user.name}__}">[Your Name]</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <i class="icon fa fa-comment"></i>
+            <textarea name="feedback" id="feedback" placeholder="Message"></textarea>
+        </div>
+        <button type="submit">Send</button>
+    </div>
+</div>
+
+</body>
+</html>

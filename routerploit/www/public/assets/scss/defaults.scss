@@ -1,0 +1,179 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  min-height: inherit;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: $font_size_m;
+  font-family: "Poppins", Arial, sans-serif;
+  line-height: 1.5;
+  overflow: overlay;
+  background-color: $clr_primary;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $clr_scrollbar_track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $clr_scrollbar_thumb;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $clr_scrollbar_hover;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin: 0;
+  font-weight: 400;
+
+  &.center {
+    margin-inline: auto;
+  }
+}
+
+h1,
+.h1 {
+  font-size: $font_size_xxl;
+  font-weight: 500;
+}
+
+h2,
+.h2 {
+  font-size: $font_size_xl;
+}
+
+h3,
+.h3 {
+  font-size: $font_size_l;
+}
+
+h4,
+.h4 {
+  font-size: $font_size_m;
+}
+
+h5,
+.h5 {
+  font-size: $font_size_m;
+}
+
+h6,
+.h6 {
+  font-size: $font_size_m;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  margin: 0;
+  margin-top: 0.5em;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+label {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+button {
+  font-family: "Poppins", Arial, sans-serif;
+  border: none;
+}
+
+img {
+  display: block;
+}
+
+strong {
+  font-weight: 700;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.divider {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    inset: 0 0 auto 0;
+    height: 2px;
+  }
+}
+
+.container {
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: 2rem;
+}
+
+@media only screen and (width > $mq_tablet) {
+  .container {
+    margin-inline: 3rem;
+  }
+}
+
+@media only screen and (width > $mq_laptop) {
+  .container {
+    margin-inline: 5rem;
+  }
+}
+
+@media only screen and (width > $mq_desktop) {
+  .container {
+    margin-inline: 7rem;
+  }
+}

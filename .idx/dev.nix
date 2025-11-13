@@ -10,6 +10,10 @@
     # pkgs.python311Packages.pip
     # pkgs.nodejs_20
     # pkgs.nodePackages.nodemon
+    pkgs.docker
+    pkgs.docker-compose
+    pkgs.python311
+    pkgs.jdk
   ];
   # Sets environment variables in the workspace
   env = {};

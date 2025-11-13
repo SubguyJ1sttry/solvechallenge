@@ -1,0 +1,1 @@
+sass --no-source-map --style=compressed --watch /var/www/routerploit/public/assets/scss/:/var/www/routerploit/public/assets/css/

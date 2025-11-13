@@ -1,0 +1,33 @@
+$mq_tablet_small: 590px;
+$mq_tablet: 768px;
+$mq_laptop: 1024px;
+$mq_desktop: 1440px;
+
+$transparent: rgba(0, 0, 0, 0);
+$clr_white: #ffffff;
+$clr_black: #272727;
+
+$clr_green: #00750f;
+$clr_green_light: #00ff0d;
+$clr_green_dark: #1e5525;
+$clr_blue_dark: #004542;
+$clr_red: #c73131;
+
+$clr_primary: #f6ffed;
+$clr_secondary: #a2c8c9;
+$clr_tertiary: #a7330c;
+
+$clr_scrollbar_track: #777;
+$clr_scrollbar_thumb: #fff;
+$clr_scrollbar_hover: #ccc;
+
+$font_size_5xl: clamp(4.5rem, 5.7vw, 5.5rem);
+$font_size_4xl: clamp(3.5rem, 4.9vw, 4.5rem);
+$font_size_3xl: clamp(3rem, 4.4vw, 3.5rem);
+$font_size_xxl: clamp(2rem, 3.2vw, 2.75rem);
+$font_size_xl: clamp(1.6rem, 2.2vw, 1.7rem);
+$font_size_l: clamp(1.2rem, 1.8vw, 1.4rem);
+$font_size_m: clamp(1rem, 1.3vw, 1.125rem);
+$font_size_ml: clamp(1.1rem, 1.5vw, 1.3rem);
+$font_size_s: clamp(0.8rem, 1vw, 1.1rem);
+$font_size_xs: clamp(0.7rem, 1vw, 0.9rem);

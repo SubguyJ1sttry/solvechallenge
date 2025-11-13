@@ -1,0 +1,155 @@
+@import "variables";
+
+main {
+  flex: 1;
+
+  section {
+    overflow: hidden;
+    position: relative;
+    color: $clr_green_dark;
+
+    a {
+      color: $clr_green_light;
+    }
+  }
+}
+
+#products {
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 5rem;
+
+    .item {
+      position: relative;
+      background-color: $clr_white;
+      padding: 2em;
+      border: 2px solid $clr_green_dark;
+      border-radius: 1.5em;
+
+      a.itemlink {
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left: 0;
+        z-index: 1;
+        margin: 0;
+      }
+
+      img {
+        height: 270px;
+        margin-inline: auto;
+      }
+    }
+  }
+}
+
+#product .container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 3rem;
+
+  .product_image {
+    flex: 1;
+    aspect-ratio: 1/1;
+    max-width: 350px;
+    align-self: center;
+    position: relative;
+    background-color: $clr_white;
+    padding: 2em;
+    border: 2px solid $clr_green_dark;
+    border-radius: 1.5em;
+    align-self: baseline;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .product_details {
+    flex: 2;
+    width: fit-content;
+
+    p {
+      &:first-of-type {
+        margin-top: 2rem;
+      }
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    b {
+      font-weight: 600;
+    }
+  }
+}
+
+#comment,
+#comments,
+#notes,
+#add_note,
+#invoices {
+  width: 100%;
+
+  form.form,
+  div.formtext {
+    max-width: unset;
+    width: 100%;
+
+    .username,
+    .product_name {
+      font-size: $font_size_xs;
+    }
+
+    .comment_title,
+    .invoice_title {
+      font-weight: 600;
+    }
+
+    .user_comment,
+    .invoices,
+    .user_note {
+      margin-bottom: 2rem;
+      position: relative;
+
+      a {
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left: 0;
+        z-index: 1;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (width > $mq_tablet_small) {
+  #product .container {
+    flex-direction: row;
+    .product_image {
+      max-width: unset;
+    }
+  }
+}
+
+@media only screen and (width > $mq_laptop) {
+  #product .container {
+    gap: 5rem;
+  }
+}
+
+@media only screen and (width > $mq_desktop) {
+  #products {
+    .container {
+      justify-content: space-between;
+    }
+  }
+}

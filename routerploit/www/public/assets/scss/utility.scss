@@ -1,0 +1,549 @@
+@import "variables";
+
+.overflow_hidden {
+  overflow: hidden;
+}
+
+.fs-5xl {
+  font-size: $font_size_5xl;
+}
+.fs-4xl {
+  font-size: $font_size_4xl;
+}
+.fs-3xl {
+  font-size: $font_size_3xl;
+}
+.fs-xxl {
+  font-size: $font_size_xxl;
+}
+.fs-xl {
+  font-size: $font_size_xl;
+}
+.fs-l {
+  font-size: $font_size_l;
+}
+.fs-m {
+  font-size: $font_size_m;
+}
+.fs-ml {
+  font-size: $font_size_ml;
+}
+.fs-s {
+  font-size: $font_size_s;
+}
+.fs-xs {
+  font-size: $font_size_xs;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.no_uppercase {
+  text-transform: initial;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bolder {
+  font-weight: 800;
+}
+
+.disabled {
+  opacity: 0.7;
+  pointer-events:none;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.margin_left_auto {
+  margin-left: auto;
+}
+
+.margin_inline_auto {
+  margin-inline: auto;
+}
+
+.margin_right_auto {
+  margin-right: auto;
+}
+
+.margin_bottom_m {
+  margin-bottom: 1rem;
+}
+
+.margin_bottom_s {
+  margin-bottom: 0.5rem;
+}
+
+.margin_bottom_xs {
+  margin-bottom: 0.3rem;
+}
+
+.margin_block_m {
+  margin-block: 1rem;
+}
+
+.margin_block_s {
+  margin-block: 0.5rem;
+}
+
+.margin_block_xs {
+  margin-block: 0.3rem;
+}
+
+.fit_content {
+  width: fit-content;
+  height: fit-content;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.flex_align_self_center {
+  align-self: center;
+}
+
+.width_100 {
+  width: 100% !important;
+}
+
+.block {
+  padding-block: 0 7rem;
+
+  &:first-child {
+    padding-top: 7rem;
+  }
+}
+
+.dark {
+  color: $clr_white;
+
+  &.black {
+    background-color: $clr_black;
+  }
+
+  &.primary {
+    background-color: $clr_primary;
+  }
+
+  .underline::before {
+    background-color: $clr_primary;
+  }
+}
+
+.clr_primary {
+  color: $clr_primary !important;
+}
+
+.clr_secondary {
+  color: $clr_secondary !important;
+}
+
+.clr_tertiary {
+  color: $clr_tertiary !important;
+}
+
+.clr_blue_dark {
+  color: $clr_blue_dark !important;
+}
+
+.reset_links {
+  a {
+    margin-top: 0;
+    color: inherit;
+  }
+}
+
+.border_bottom_none {
+  border-bottom: none !important;
+}
+
+.no_underline {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.underline {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 3px;
+    // left to be set: width, height, inset, background-color
+  }
+}
+
+.subheading {
+  font-size: $font_size_m;
+  margin-top: -0.75em;
+}
+
+.hover_primary {
+  transition: color 100ms linear;
+
+  &:hover {
+    color: $clr_primary;
+  }
+}
+
+.hover_secondary {
+  transition: color 100ms linear;
+
+  &:hover {
+    color: $clr_secondary;
+  }
+}
+
+.hover_tertiary {
+  transition: color 100ms linear;
+
+  &:hover {
+    color: $clr_tertiary;
+  }
+}
+
+.hover_blue_dark {
+  transition: color 100ms linear;
+
+  &:hover {
+    color: $clr_blue_dark;
+  }
+}
+
+.hover_fromcenter {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-radius: 3px;
+    left: 0;
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: transform 0.25s linear;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+.hover_toright {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-radius: 3px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+
+.hover_rotate {
+  transition: transform 1s linear;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+.curved_divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.curved_divider svg {
+  position: relative;
+  display: block;
+  width: calc(150% + 1.3px);
+  height: 15px;
+}
+
+.curved_divider_flip svg {
+  transform: rotateY(180deg);
+}
+
+.curved_divider .shape-fill {
+  fill: $clr_secondary;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+span.amount {
+  display: block;
+  margin-top: 0.5em;
+}
+
+form.form,
+div.formtext {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: $mq_tablet;
+  margin-inline: auto;
+  padding: 3rem 3rem 1rem;
+  background-color: $clr_secondary;
+  color: $clr_blue_dark;
+  border-radius: 20px;
+
+  h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .w75_25 {
+    display: grid;
+    grid-template-columns: 75% 1fr;
+  }
+
+  .w66_34 {
+    display: grid;
+    grid-template-columns: 66% 1fr;
+  }
+
+  .w50_50 {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+  }
+
+  .title {
+    font-size: $font_size_l;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    margin-bottom: 0.5rem;
+  }
+
+  .form_container {
+    border-radius: 6px;
+    background-color: $clr_white;
+    width: 100%;
+  }
+
+  .input_group {
+    margin-bottom: 2rem;
+
+    &:has(input[name="user_guid"]) {
+      display: none;
+    }
+  }
+
+  input,
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    font-size: $font_size_m;
+    color: $clr_blue_dark;
+    padding: 0;
+    background: none;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid $clr_primary;
+
+    &::placeholder {
+      color: $clr_primary;
+      opacity: 0.8;
+    }
+
+    &[type=submit] {
+      width: 100%;
+      height: 2em;
+      border-radius: 99px;
+      font-size: $font_size_m;
+      background-color: $clr_primary;
+      margin-bottom: 2rem;
+
+      &.short {
+        width: fit-content;
+        padding-inline: 2em;
+      }
+
+      &:hover {
+        background-color: $clr_white;
+        cursor: pointer;
+      }
+    }
+
+    &[type=radio] {
+      display: unset;
+      width: unset;
+      margin: 0;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  div {
+    &.checkbox {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid $clr_primary;
+    }
+    &.radio_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &.radio {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      flex: 1;
+      box-sizing: border-box;
+      min-width: 112px;
+    }
+  }
+
+  input.checkbox {
+    overflow: hidden;
+  }
+
+  label {
+    display: block;
+    font-size: $font_size_m;
+    color: $clr_blue_dark;
+
+    &.error {
+      color: $clr_red;
+    }
+
+    &.radio {
+      display: unset;
+    }
+  }
+
+  a {
+    color: $clr_green;
+  }
+
+  &.button {
+    max-width: unset;
+    margin-inline: unset;
+    width: 100%;
+    padding: 0;
+    background-color: unset;
+
+    textarea#purchase_note::placeholder {
+      color: $clr_secondary;
+    }
+
+    input[type=submit] {
+      margin: unset;
+      margin-bottom: 0.5em;
+      padding-block: 0.5em;
+      background-color: $clr_secondary;
+      height: fit-content;
+    }
+  }
+}
+
+.clipboard {
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.25em 1em;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-align: center;
+
+  i {
+    margin-left: 1em;
+  }
+}
+
+@media only screen and (width > $mq_tablet_small) {
+  .max_tablet_small {
+    display: none;
+  }
+  
+  .curved_divider svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 30px;
+  }
+}
+
+@media only screen and (width > $mq_tablet) {
+  .max_tablet {
+    display: none;
+  }
+}
+
+@media only screen and (width > $mq_laptop) {
+  .max_laptop {
+    display: none;
+  }
+}
+
+@media only screen and (width > $mq_desktop) {
+  .max_desktop {
+    display: none;
+  }
+}
+
+@media only screen and (width < $mq_desktop) {
+  .min_desktop {
+    display: none;
+  }
+}
+
+@media only screen and (width < $mq_laptop) {
+  .min_laptop {
+    display: none;
+  }
+}
+
+@media only screen and (width < $mq_tablet) {
+  .min_tablet {
+    display: none;
+  }
+}

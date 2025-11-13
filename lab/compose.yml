@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+      - 9999:9999
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: employee_directory
+      MYSQL_USER: emsapp
+      MYSQL_PASSWORD: jR.)X=~@bx;%9blN
+    volumes:
+      - ./app/employee_directory.sql:/docker-entrypoint-initdb.d/employee_directory.sql

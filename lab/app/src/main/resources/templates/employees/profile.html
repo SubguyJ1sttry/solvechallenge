@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9fbfd;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        .navbar-nav {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            margin-left: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            height: calc(100vh - 80px);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .profile-header .profile-link {
+            margin-left: auto;
+            font-size: 14px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .profile-header .upload-button {
+            background-color: #e7e7e7;
+            color: #333;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .profile-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .profile-form .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .profile-form .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .profile-form .form-group input,
+        .profile-form .form-group select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .profile-form .form-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .profile-form .form-actions {
+            grid-column: span 2;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            bottom: 20px;
+        }
+
+        .profile-form .save-button {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .profile-form .cancel-button {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a class="navbar-brand" href="/">
+        <img th:src="@{/images/pass_fail_160px.png}" width="30" height="30" alt="icon">
+        myems.io
+    </a>
+    <div class="navbar-nav">
+        <a class="nav-link" th:href="@{/employees/profile}">Profile</a>
+        <a class="nav-link" th:href="@{/employees/list}">Employee List</a>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
+    </div>
+</nav>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img th:src="@{/images/avatar.png}" alt="Profile Picture" class="profile-picture" />
+        <h2 th:text="${user.name}">Julianne Moore</h2>
+        <a href="#" class="profile-link">View Profile</a>
+        <button class="upload-button">Upload</button>
+    </div>
+
+    <form th:action="@{/employees/profile}" th:object="${user}" method="post" class="profile-form">
+        <h3 style="grid-column: span 2; margin-bottom: 20px;">Update Information</h3>
+        <div class="form-group" style="grid-column: span 2;">
+            <label for="name">Name</label>
+            <input type="text" th:field="*{name}" placeholder="Name" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" th:field="*{email}" placeholder="Email" />
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone number</label>
+            <input type="tel" th:field="*{phone}" placeholder="Phone Number" />
+        </div>
+        <div class="form-group" style="grid-column: span 2;">
+            <label for="address">Address</label>
+            <input type="text" th:field="*{address}" placeholder="Address" />
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" th:field="*{city}" placeholder="City" />
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select th:field="*{country}">
+                <option value="">Country</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="zip">ZIP</label>
+            <input type="text" th:field="*{zip}" placeholder="ZIP" />
+        </div>
+        <div class="form-actions">
+            <button type="button" class="cancel-button">Cancel</button>
+            <button type="submit" class="save-button">Save</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
