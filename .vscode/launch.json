@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        
+        
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Docker Node",
+            "address": "localhost",
+            "port": 9229,
+            "localRoot": "${workspaceFolder}/kuromindhtb/app",          
+            "remoteRoot": "/app",                       
+            "restart": true
+        }
+        
+    ]
+}
