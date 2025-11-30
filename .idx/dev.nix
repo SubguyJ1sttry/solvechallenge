@@ -38,6 +38,16 @@
         #     PORT = "$PORT";
         #   };
         # };
+          # web = {
+          #       # This command starts a tiny server that immediately redirects
+          #       # the preview browser to port 8000, where the real app runs.
+          #   command = [
+          #     "sh"
+          #     "-c"
+          #     "while true; do echo -e 'HTTP/1.1 302 Found\\r\\nLocation: http://localhost:8000\\r\\n' | ncat -l -p $PORT; done"
+          #   ];
+          #   manager = "web";
+          # };
       };
     };
     # Workspace lifecycle hooks
@@ -51,8 +61,7 @@
       };
       # Runs when the workspace is (re)started
       onStart = {
-        # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
+          "docker-compose-up" = "docker-compose -f kuromindhtb/docker-compose.yml up -d";
       };
     };
   };
